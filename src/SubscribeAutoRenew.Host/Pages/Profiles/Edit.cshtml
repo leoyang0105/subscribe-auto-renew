@@ -1,0 +1,87 @@
+﻿@page
+@model SubscribeAutoRenew.Host.Pages.Profiles.EditModel
+@{
+    var isNew = string.IsNullOrEmpty(Model.Profile?.Id);
+    var title = isNew ? "Create" : "Edit";
+    ViewData["Title"] = title;
+}
+
+<h1>
+    @title
+</h1>
+
+<h4>Profile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Profile.Name" class="control-label"></label>
+                <input asp-for="Profile.Name" class="form-control" />
+                <span asp-validation-for="Profile.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Link" class="control-label"></label>
+                <input asp-for="Profile.Link" class="form-control" />
+                <span asp-validation-for="Profile.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Path" class="control-label"></label>
+                <input asp-for="Profile.Path" class="form-control" />
+                <span asp-validation-for="Profile.Path" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Profile.MixedPort" class="control-label"></label>
+                <input asp-for="Profile.MixedPort" class="form-control" />
+                <span asp-validation-for="Profile.MixedPort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.AllowLan" class="control-label"></label>
+                <input asp-for="Profile.AllowLan" class="form-control" />
+                <span asp-validation-for="Profile.AllowLan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Mode" class="control-label"></label>
+                <input asp-for="Profile.Mode" class="form-control" />
+                <span asp-validation-for="Profile.Mode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Profile.ExternalController" class="control-label"></label>
+                <input asp-for="Profile.ExternalController" class="form-control" />
+                <span asp-validation-for="Profile.ExternalController" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.BindAddress" class="control-label"></label>
+                <input asp-for="Profile.BindAddress" class="form-control" />
+                <span asp-validation-for="Profile.BindAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.LogLevel" class="control-label"></label>
+                <input asp-for="Profile.LogLevel" class="form-control" />
+                <span asp-validation-for="Profile.LogLevel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Profile.Description" class="control-label"></label>
+                <input asp-for="Profile.Description" class="form-control" />
+                <span asp-validation-for="Profile.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value=@title class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
